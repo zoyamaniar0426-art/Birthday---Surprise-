@@ -7,13 +7,15 @@
 <title>A Little Magic For You 💙</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   min-height: 100vh;
   min-height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
   background: radial-gradient(ellipse at bottom, #172b62 0%, #080d25 65%, #030612 100%);
   color: white;
   font-family: Georgia, serif;
@@ -38,13 +40,12 @@ body {
   to { opacity: 1; transform: scale(1.2); }
 }
 
-/* THREE BLUE BUTTERFLIES */
-
 .butterfly {
   position: absolute;
   left: -70px;
   line-height: 1;
-  filter: drop-shadow(0 0 8px #399cff) drop-shadow(0 0 17px #168bff);
+  filter: drop-shadow(0 0 8px #399cff)
+          drop-shadow(0 0 17px #168bff);
   will-change: transform;
 }
 
@@ -82,7 +83,7 @@ body {
   0% { transform: translate(0,0) rotate(10deg); }
   20% { transform: translate(20vw,32px) rotate(-12deg); }
   42% { transform: translate(43vw,-28px) rotate(8deg); }
-  60% { transform: translate(65vw,25px) rotate(-14deg); }
+  60% { transform: translate(65vw,25px) rotate(-15deg); }
   80% { transform: translate(87vw,-18px) rotate(12deg); }
   100% { transform: translate(115vw,15px) rotate(-8deg); }
 }
@@ -91,29 +92,24 @@ body {
   0% { transform: translate(0,0) rotate(-8deg); }
   18% { transform: translate(17vw,-22px) rotate(12deg); }
   38% { transform: translate(40vw,28px) rotate(-10deg); }
-  58% { transform: translate(62vw,-32px) rotate(13deg); }
+  58% { transform: translate(62vw,-15px) rotate(9deg); }
   78% { transform: translate(85vw,18px) rotate(-12deg); }
   100% { transform: translate(115vw,-8px) rotate(8deg); }
 }
 
-/* BLUE BUTTERFLY GLITTER */
-
 .glitter {
   position: absolute;
   color: #9bd8ff;
-  line-height: 1;
   pointer-events: none;
-  text-shadow: 0 0 5px #62baff, 0 0 12px #168bff, 0 0 20px #399cff;
+  text-shadow: 0 0 5px #62baff, 0 0 12px #168bff;
   animation: sparkle 1.5s ease-out forwards;
 }
 
 @keyframes sparkle {
-  0% { opacity: 0; transform: scale(.2) translateY(0) rotate(0deg); }
-  20% { opacity: 1; transform: scale(1.2) translateY(-3px) rotate(35deg); }
-  100% { opacity: 0; transform: scale(.3) translateY(-28px) rotate(100deg); }
+  0% { opacity: 0; transform: scale(.2) translateY(0); }
+  20% { opacity: 1; transform: scale(1.2) translateY(-3px); }
+  100% { opacity: 0; transform: scale(3) translateY(-28px); }
 }
-
-/* SLIDE LAYOUT */
 
 main {
   position: relative;
@@ -131,6 +127,19 @@ main {
 section {
   width: 100%;
   max-width: 440px;
+  margin: auto;
+  animation: appear 1.2s ease both;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#slide2,
+#slide3,
+#videoSlide {
+  display: none;
 }
 
 .eyebrow {
@@ -139,6 +148,17 @@ section {
   font-size: 11px;
   line-height: 1.8;
   margin-bottom: 20px;
+}
+
+.heart {
+  font-size: 25px;
+  margin-bottom: 8px;
+  animation: heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.13); }
 }
 
 h1 {
@@ -158,11 +178,6 @@ p {
   margin: 12px auto;
 }
 
-.heart {
-  color: #9bcaff;
-  font-size: 25px;
-}
-
 .hint {
   font-size: 12px;
   color: #819bd7;
@@ -180,20 +195,15 @@ button {
   padding: 16px 25px;
   border: 1px solid #8dc6ff;
   border-radius: 40px;
-  background: linear-gradient(135deg, #244b9b, #152653);
+  background: linear-gradient(135deg, #2455b9, #152653);
   color: white;
   font-size: 15px;
   box-shadow: 0 0 25px #315bc866;
 }
 
-#slide2, #slide3, #videoSlide {
-  display: none;
-  animation: appear 1.2s ease both;
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+.blue-button:active,
+.gift-button:active {
+  transform: scale(.97);
 }
 
 /* GIFT BOX SLIDE */
@@ -211,7 +221,7 @@ button {
   max-height: 43vh;
   object-fit: contain;
   border-radius: 14px;
-  box-shadow: 0 0 28px #f08ab866;
+  box-shadow: 0 0 20px #f08ab866;
   background: #fce9ef;
 }
 
@@ -240,14 +250,14 @@ button {
   font-size: clamp(16px, 4.4vw, 21px);
   font-weight: bold;
   letter-spacing: .5px;
-  box-shadow: 0 0 14px #ff67b8, 0 0 32px #f42c9b88;
+  box-shadow: 0 0 14px #ff76b8, 0 0 32px #f42c9b88;
   animation: pinkPulse 1.2s ease-in-out infinite;
 }
 
 @keyframes pinkPulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 12px #ff67b8, 0 0 24px #f42c9b77;
+    box-shadow: 0 0 12px #ff76b8, 0 0 24px #f42c9b77;
   }
   50% {
     transform: scale(1.035);
@@ -256,7 +266,7 @@ button {
 }
 
 .tap-hint {
-  color: #ffcce2;
+  color: #ffcfe2;
   font-size: 12px;
   margin-top: 12px;
 }
@@ -284,18 +294,31 @@ button {
   }
 }
 
-/* VIDEO PLACEHOLDER */
+/* VIDEO SLIDE */
 
 .video-box {
   border: 1px solid #8dc6ff;
   border-radius: 16px;
-  padding: 24px 15px;
+  padding: 8px;
   background: #101d46cc;
-  margin-top: 20px;
+  margin: 20px auto;
+  box-shadow: 0 0 25px #315bc855;
+}
+
+#birthdayVideo {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  border-radius: 10px;
+  background: #030612;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .star, .butterfly, .gift-button {
+  .star,
+  .butterfly,
+  .glitter,
+  .heart,
+  .gift-button {
     animation-duration: 8s;
   }
 }
@@ -312,17 +335,17 @@ button {
 
 <main>
 
-  <!-- SLIDE 1 -->
+  <!-- SLIDE 1: WELCOME -->
 
   <section id="welcome">
     <div class="eyebrow">✦ A LITTLE MAGIC FOR YOU ✦</div>
-    <div class="heart">♡</div>
+    <div class="heart">💙</div>
 
     <h1>Hey,<br>Birthday Boy...</h1>
 
     <p>
-      Somewhere beneath a thousand stars,
-      someone made a little world
+      Somewhere beneath a thousand stars,<br>
+      someone made a little world<br>
       just for you. 💙
     </p>
 
@@ -333,7 +356,7 @@ button {
     <div class="hint">FOLLOW THE LITTLE BUTTERFLY 🦋</div>
   </section>
 
-  <!-- SLIDE 2 -->
+  <!-- SLIDE 2: LOVE MESSAGE -->
 
   <section id="slide2">
     <div class="eyebrow">✦ A LITTLE WORLD MADE FOR YOU ✦</div>
@@ -386,23 +409,34 @@ button {
     <div class="tap-hint">♡ Made with love, just for you ♡</div>
   </section>
 
-  <!-- NEXT SURPRISE PLACEHOLDER -->
+  <!-- SLIDE 4: BIRTHDAY VIDEO -->
 
   <section id="videoSlide">
     <div class="eyebrow">✦ YOUR SURPRISE CONTINUES ✦</div>
 
-    <h1>A Little Something<br>Just for You 💖</h1>
+    <h1 style="font-size:clamp(30px,7vw,42px)">
+      A Little Something<br>Just for You 💗
+    </h1>
 
     <div class="video-box">
-      <div class="heart">🎬 ✨ 🎁</div>
-      <p>
-        Your next surprise will go right here.
-      </p>
-      <p>
-        The gift box has opened, but the magic
-        isn't over yet. 💗
-      </p>
+      <video
+        id="birthdayVideo"
+        controls
+        playsinline
+        preload="metadata"
+      >
+        <source
+          src="gemini_generated_video_e7915351.mp4"
+          type="video/mp4"
+        >
+        Your browser does not support video playback.
+      </video>
     </div>
+
+    <p>
+      A little birthday memory, made with love,
+      just for you. 🩵
+    </p>
   </section>
 
 </main>
@@ -419,14 +453,14 @@ for (let i = 0; i < 65; i++) {
   star.textContent = "✦";
   star.style.left = Math.random() * 100 + "%";
   star.style.top = Math.random() * 100 + "%";
-  star.style.fontSize = (5 + Math.random() * 9) + "px";
+  star.style.fontSize = (Math.random() * 9 + 5) + "px";
   star.style.animationDelay = Math.random() * 3 + "s";
   sky.appendChild(star);
 }
 
 /* BLUE BUTTERFLY GLITTER */
 
-const blueSymbols = ["✦", "✧", "⋆", "·"];
+const blueSymbols = ["✧", "✦", "·", "⋆"];
 
 setInterval(() => {
   butterflies.forEach((butterfly) => {
@@ -444,10 +478,8 @@ setInterval(() => {
     glitter.textContent =
       blueSymbols[Math.floor(Math.random() * blueSymbols.length)];
 
-    glitter.style.left =
-      (rect.left + Math.random() * rect.width) + "px";
-    glitter.style.top =
-      (rect.top + Math.random() * rect.height) + "px";
+    glitter.style.left = Math.random() * rect.width + rect.left + "px";
+    glitter.style.top = Math.random() * rect.height + rect.top + "px";
     glitter.style.fontSize = (7 + Math.random() * 8) + "px";
 
     sky.appendChild(glitter);
@@ -465,14 +497,31 @@ function showSlide(slideId) {
     document.getElementById(id).style.display = "none";
   });
 
-  document.getElementById(slideId).style.display = "block";
+  const nextSlide = document.getElementById(slideId);
+  nextSlide.style.display = "block";
+
+  /* Restart the slide entrance animation */
+  nextSlide.style.animation = "none";
+  void nextSlide.offsetWidth;
+  nextSlide.style.animation = "appear 1.2s ease both";
+
+  /* Stop video when leaving its slide */
+  const video = document.getElementById("birthdayVideo");
+  if (slideId !== "videoSlide") {
+    video.pause();
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 /* PINK SPARKLE BURST WHEN GIFT IS OPENED */
 
 function openGift() {
   const button = document.querySelector(".gift-button");
+  if (button.disabled) return;
+
   const rect = button.getBoundingClientRect();
+  button.disabled = true;
 
   const symbols = ["✦", "✧", "♡", "✨", "⋆"];
 
@@ -482,10 +531,8 @@ function openGift() {
     sparkle.textContent =
       symbols[Math.floor(Math.random() * symbols.length)];
 
-    sparkle.style.left =
-      (rect.left + rect.width / 2) + "px";
-    sparkle.style.top =
-      (rect.top + rect.height / 2) + "px";
+    sparkle.style.left = (rect.left + rect.width / 2) + "px";
+    sparkle.style.top = (rect.top + rect.height / 2) + "px";
 
     const angle = Math.random() * Math.PI * 2;
     const distance = 45 + Math.random() * 170;
@@ -500,8 +547,6 @@ function openGift() {
       sparkle.remove();
     }, { once: true });
   }
-
-  button.disabled = true;
 
   setTimeout(() => {
     showSlide("videoSlide");
