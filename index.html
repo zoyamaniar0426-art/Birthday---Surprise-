@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +43,6 @@ body {
   left: -70px;
   line-height: 1;
   filter: drop-shadow(0 0 8px #399cff) drop-shadow(0 0 17px #168bff);
-  will-change: transform;
 }
 
 .butterfly.one {
@@ -197,7 +197,7 @@ button:active { transform: scale(.97); }
   margin-top: 30px;
 }
 
-/* SLIDE 3: GIFT PHOTO */
+/* GIFT PHOTO */
 
 #slide3 {
   max-height: 94vh;
@@ -229,6 +229,7 @@ button:active { transform: scale(.97); }
 }
 
 .gift-button {
+  position: relative;
   width: 100%;
   max-width: 360px;
   padding: 19px 12px;
@@ -270,7 +271,7 @@ button:active { transform: scale(.97); }
   100% { opacity: 0; transform: translate(var(--dx),var(--dy)) scale(1.5) rotate(140deg); }
 }
 
-/* VIDEO AND LUNA SLIDES */
+/* VIDEO AND LUNA */
 
 .video-box {
   border: 1px solid #8dc6ff;
@@ -335,14 +336,10 @@ video {
   50% { background-position: 100% 50%; }
 }
 
-.luna-caption {
-  color: #e4dcff;
-  font-size: 13px;
-}
+.luna-caption { color: #e4dcff; font-size: 13px; }
 
 #lunaNextButton {
   display: none;
-  animation: appear .8s ease both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -362,105 +359,76 @@ video {
 
 <main>
 
-  <!-- SLIDE 1 -->
-  <section id="welcome">
-    <div class="eyebrow">✦ A LITTLE MAGIC FOR YOU ✦</div>
-    <div class="heart">💙</div>
-    <h1>Hey,<br>Birthday Boy...!</h1>
-    <p>
-      Somewhere beneath a thousand stars,<br>
-      someone made a little world<br>
-      just for you. 💙
-    </p>
-    <button class="blue-button" onclick="showSlide('slide2')">
-      Open Your Surprise ✨
-    </button>
-    <div class="hint">FOLLOW THE LITTLE BUTTERFLY 🦋</div>
-  </section>
+<!-- SLIDE 1 -->
+<section id="welcome">
+  <div class="eyebrow">✦ A LITTLE MAGIC FOR YOU ✦</div>
+  <div class="heart">💙</div>
+  <h1>Hey,<br>Birthday Boy...!</h1>
+  <p>Somewhere beneath a thousand stars,<br>someone made a little world<br>just for you. 💙</p>
+  <button class="blue-button" onclick="showSlide('slide2')">Open Your Surprise ✨</button>
+  <div class="hint">FOLLOW THE LITTLE BUTTERFLY 🦋</div>
+</section>
 
-  <!-- SLIDE 2 -->
-  <section id="slide2">
-    <div class="eyebrow">✦ A LITTLE WORLD MADE FOR YOU ✦</div>
-    <div class="heart">♡</div>
-    <h1>Happy Birthday,<br>My Love 💙</h1>
-    <p>
-      If I could give you one thing in this world,
-      it would be the chance to see yourself
-      through my eyes.
-    </p>
-    <p>
-      Maybe then you'd understand just how
-      special you are to me. 🦋
-    </p>
-    <p>
-      And this little universe? It's just the beginning
-      of everything I want to show you. ♡
-    </p>
-    <button class="blue-button" onclick="showSlide('slide3')">
-      There's More for You 💌
-    </button>
-  </section>
+<!-- SLIDE 2 -->
+<section id="slide2">
+  <div class="eyebrow">✦ A LITTLE WORLD MADE FOR YOU ✦</div>
+  <div class="heart">♡</div>
+  <h1>Happy Birthday,<br>My Love 💙</h1>
+  <p>If I could give you one thing in this world, it would be the chance to see yourself through my eyes.</p>
+  <p>Maybe then you'd understand just how special you are to me. 🦋</p>
+  <p>And this little universe? It's just the beginning of everything I want to show you. ♡</p>
+  <button class="blue-button" onclick="showSlide('slide3')">There's More for You 💌</button>
+</section>
 
-  <!-- SLIDE 3 -->
-  <section id="slide3">
-    <div class="eyebrow">✦ A LITTLE SURPRISE ✦</div>
-    <img
-      class="gift-photo"
-      src="Screenshot_2026-10-19-04-21-50-94_99c04817c0de5652397fc8b56c3b3817.jpg"
-      alt="A pink floral gift box with a satin bow"
-    >
-    <h2 class="gift-title">A Little Gift for You 💗</h2>
-    <p class="gift-subtitle">There's something special waiting inside...</p>
-    <button class="gift-button" onclick="openGift()">
-      ✨ TAP TO OPEN THE BOX 🎁
-    </button>
-    <div class="tap-hint">♡ Made with love, just for you ♡</div>
-  </section>
+<!-- SLIDE 3 -->
+<section id="slide3">
+  <div class="eyebrow">✦ A LITTLE SURPRISE ✦</div>
+  <img class="gift-photo"
+    src="Screenshot_2026-10-19-04-21-50-94_99c04817c0de5652397fc8b56c3b3817.jpg"
+    alt="A pink floral gift box with a satin bow">
+  <h2 class="gift-title">A Little Gift for You 💗</h2>
+  <p class="gift-subtitle">There's something special waiting inside...</p>
+  <button class="gift-button" onclick="openGift()">✨ TAP TO OPEN THE BOX 🎁</button>
+  <div class="tap-hint">♡ Made with love, just for you ♡</div>
+</section>
 
-  <!-- SLIDE 4: VIDEO TO BE ADDED TOMORROW -->
-  <section id="videoSlide">
-    <div class="eyebrow">✦ YOUR SURPRISE CONTINUES ✦</div>
-    <div class="moon">🌙</div>
-    <h1 style="font-size:clamp(30px,7vw,42px);">
-      A Little Something<br>Just for You 💗
-    </h1>
-    <div class="video-box">
-      <p>Your birthday video for this slide will be added tomorrow. 🩵</p>
+<!-- SLIDE 4: BIRTHDAY VIDEO -->
+<section id="videoSlide">
+  <div class="eyebrow">✦ YOUR SURPRISE CONTINUES ✦</div>
+  <div class="moon">🌙</div>
+  <h1 style="font-size:clamp(30px,7vw,42px)">A Little Birthday Memory 💙</h1>
+  <div class="video-box">
+    <video id="birthdayVideo" controls playsinline preload="metadata">
+      <source src="gemini_generated_video_e7915351.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+  </div>
+  <p>A little birthday memory, made with love, just for you. 💙</p>
+  <button class="blue-button" onclick="goToWishSlide()">Continue to Your Wish 🌈</button>
+</section>
+
+<!-- SLIDE 5: RAINBOW WISH VIDEO -->
+<section id="slide5">
+  <div class="eyebrow">✦ A LITTLE WISH TO THE MOON ✦</div>
+  <div class="moon">🌙</div>
+  <h1 class="luna-heading">Your Magical Wish 🦋</h1>
+
+  <div class="video-box">
+    <video id="lunaVideo" controls playsinline preload="metadata">
+      <source src="gemini_generated_video_c2f2162b.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+  </div>
+
+  <div class="rainbow-card">
+    <div class="rainbow-inner">
+      <p>Close your eyes, make a wish, and blow the candle, love 🩵💛</p>
     </div>
-    <p>Get ready for the next little surprise. 🌈</p>
-  </section>
+  </div>
 
-  <!-- SLIDE 5: LUNA RAINBOW VIDEO -->
-  <section id="slide5">
-    <div class="eyebrow">✦ A LITTLE WISH TO THE MOON ✦</div>
-    <div class="moon">🌙</div>
-    <h1 class="luna-heading">Your Magical Wish 🦋</h1>
-
-    <div class="video-box">
-      <video id="lunaVideo" controls playsinline preload="metadata">
-        <source src="gemini_generated_video_c2f2162b.mp4" type="video/mp4">
-        Your browser does not support video playback.
-      </video>
-    </div>
-
-    <div class="rainbow-card">
-      <div class="rainbow-inner">
-        <p>Close your eyes, make a wish, and blow the candle, love 🩵💛</p>
-      </div>
-    </div>
-
-    <p class="luna-caption">
-      🌈 A little rainbow, a little moonlight, and all my love. 🌙
-    </p>
-
-    <button
-      id="lunaNextButton"
-      class="blue-button"
-      onclick="continueAfterWish()"
-    >
-      Continue Your Magic ✨
-    </button>
-  </section>
+  <p class="luna-caption">🌈 A little rainbow, a little moonlight, and all my love. 🌙</p>
+  <button id="lunaNextButton" class="blue-button" onclick="continueAfterWish()">Continue Your Magic ✨</button>
+</section>
 
 </main>
 
@@ -468,14 +436,13 @@ video {
 const sky = document.getElementById("sky");
 const butterflies = document.querySelectorAll(".butterfly");
 const slideIds = ["welcome", "slide2", "slide3", "videoSlide", "slide5"];
+const birthdayVideo = document.getElementById("birthdayVideo");
 const lunaVideo = document.getElementById("lunaVideo");
 const lunaNextButton = document.getElementById("lunaNextButton");
 
-let slide5Timer = null;
 let lunaButtonTimer = null;
 
 /* STARS */
-
 for (let i = 0; i < 65; i++) {
   const star = document.createElement("span");
   star.className = "star";
@@ -488,91 +455,65 @@ for (let i = 0; i < 65; i++) {
 }
 
 /* BLUE BUTTERFLY GLITTER */
-
 const blueSymbols = ["✧", "✦", "·", "⋆"];
 
 setInterval(() => {
   butterflies.forEach((butterfly) => {
     const rect = butterfly.getBoundingClientRect();
-
-    if (
-      rect.right < 0 ||
-      rect.left > window.innerWidth ||
-      rect.bottom < 0 ||
-      rect.top > window.innerHeight
-    ) return;
+    if (rect.right < 0 || rect.left > innerWidth || rect.bottom < 0 || rect.top > innerHeight) return;
 
     const glitter = document.createElement("span");
     glitter.className = "glitter";
-    glitter.textContent =
-      blueSymbols[Math.floor(Math.random() * blueSymbols.length)];
-
+    glitter.textContent = blueSymbols[Math.floor(Math.random() * blueSymbols.length)];
     glitter.style.left = (Math.random() * rect.width + rect.left) + "px";
     glitter.style.top = (Math.random() * rect.height + rect.top) + "px";
     glitter.style.fontSize = (7 + Math.random() * 8) + "px";
-
     sky.appendChild(glitter);
     glitter.addEventListener("animationend", () => glitter.remove(), { once: true });
   });
 }, 130);
 
 /* SLIDE NAVIGATION */
-
 function showSlide(slideId) {
-  clearTimeout(slide5Timer);
-
   slideIds.forEach((id) => {
     document.getElementById(id).style.display = "none";
   });
 
-  const nextSlide = document.getElementById(slideId);
-  nextSlide.style.display = "block";
+  document.getElementById(slideId).style.display = "block";
 
-  nextSlide.style.animation = "none";
-  void nextSlide.offsetWidth;
-  nextSlide.style.animation = "appear 1.2s ease both";
-
+  if (slideId !== "videoSlide") birthdayVideo.pause();
   if (slideId !== "slide5") {
     lunaVideo.pause();
     clearTimeout(lunaButtonTimer);
   }
 
-  if (slideId === "slide5") {
-    lunaNextButton.style.display = "none";
-  }
+  if (slideId === "slide5") lunaNextButton.style.display = "none";
 
+  const target = document.getElementById(slideId);
+  target.style.animation = "none";
+  void target.offsetWidth;
+  target.style.animation = "appear 1.2s ease both";
   window.scrollTo({ top: 0, behavior: "smooth" });
-
-  /* AUTOMATICALLY OPEN SLIDE 5 FIVE SECONDS AFTER SLIDE 4 */
-  if (slideId === "videoSlide") {
-    slide5Timer = setTimeout(() => {
-      showSlide("slide5");
-    }, 5000);
-  }
 }
 
-/* PINK SPARKLE BURST */
-
+/* GIFT BOX SPARKLES */
 function openGift() {
   const button = document.querySelector(".gift-button");
   if (button.disabled) return;
 
-  const rect = button.getBoundingClientRect();
   button.disabled = true;
-
+  const rect = button.getBoundingClientRect();
   const symbols = ["✦", "✧", "♡", "✨", "⋆"];
 
   for (let i = 0; i < 45; i++) {
     const sparkle = document.createElement("span");
     sparkle.className = "pink-sparkle";
     sparkle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-
     sparkle.style.left = (rect.left + rect.width / 2) + "px";
     sparkle.style.top = (rect.top + rect.height / 2) + "px";
 
     const angle = Math.random() * Math.PI * 2;
     const distance = 45 + Math.random() * 170;
-
     sparkle.style.setProperty("--dx", Math.cos(angle) * distance + "px");
     sparkle.style.setProperty("--dy", Math.sin(angle) * distance + "px");
     sparkle.style.fontSize = (12 + Math.random() * 18) + "px";
@@ -587,27 +528,30 @@ function openGift() {
   }, 1100);
 }
 
-/* SLIDE 5 BUTTON: 20 SECONDS OF VIDEO PLAYBACK */
+/* MOVE TO SLIDE 5 WHEN SLIDE 4 VIDEO ENDS */
+function goToWishSlide() {
+  showSlide("slide5");
+}
 
+birthdayVideo.addEventListener("ended", () => {
+  showSlide("slide5");
+});
+
+/* SLIDE 5: SHOW BUTTON AFTER 20 SECONDS OF PLAYBACK */
 lunaVideo.addEventListener("play", () => {
   lunaNextButton.style.display = "none";
   clearTimeout(lunaButtonTimer);
-
   lunaButtonTimer = setTimeout(() => {
     lunaNextButton.style.display = "inline-block";
   }, 20000);
 });
 
-lunaVideo.addEventListener("pause", () => {
-  clearTimeout(lunaButtonTimer);
-});
+lunaVideo.addEventListener("pause", () => clearTimeout(lunaButtonTimer));
 
 lunaVideo.addEventListener("ended", () => {
   clearTimeout(lunaButtonTimer);
   lunaNextButton.style.display = "inline-block";
 });
-
-/* NEXT SURPRISE WILL BE ADDED LATER */
 
 function continueAfterWish() {
   alert("Your next magical surprise is coming soon! 🌙🦋");
@@ -616,4 +560,3 @@ function continueAfterWish() {
 
 </body>
 </html>
-
