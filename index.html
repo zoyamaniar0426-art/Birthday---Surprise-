@@ -3,384 +3,277 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#10152b">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Little Birthday Universe 💙</title>
-
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:#090e20}
-body{margin:0;min-height:100vh;min-height:100dvh;background:#090e20;color:white;font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
-button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
-button:focus-visible{outline:3px solid #fff;outline-offset:4px}
-main{position:relative;z-index:2;width:100%}
-.slide{display:none;position:relative;width:100%;min-height:100vh;min-height:100dvh;padding:28px 17px calc(30px + env(safe-area-inset-bottom));flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;overflow-x:hidden;animation:fadeIn .65s ease both}
-#welcome{display:flex;background:radial-gradient(ellipse at top,#263e72,#080d20 75%)}
-#slide2{background:radial-gradient(ellipse at top,#283a66,#10162d 75%)}
-#slide3{background:radial-gradient(ellipse at top,#572c5d,#21142f 75%)}
-#videoSlide{background:radial-gradient(ellipse at top,#233c6b,#0c1226 80%)}
-#slide5{background:radial-gradient(ellipse at top,#1d315f,#10152b 80%)}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.eyebrow{font-size:11px;letter-spacing:2.5px;line-height:1.7;color:#bcd8ff;margin:4px 0 10px}
-h1{font-size:clamp(31px,8.5vw,49px);line-height:1.2;font-weight:normal;margin:8px 0;color:#f4f6ff;text-shadow:0 0 18px #527fff55}
-h2{line-height:1.3}
-p{max-width:520px;font-size:clamp(15px,4vw,18px);line-height:1.7;color:#e7eaff;margin:7px auto}
-.heart{font-size:35px;animation:heartGlow 2s infinite alternate}
-@keyframes heartGlow{to{transform:scale(1.1);filter:drop-shadow(0 0 12px #9fc8ff)}}
-.blue-button,.rainbow-next{margin-top:15px;max-width:100%;padding:14px 21px;border:1px solid #d4e4ff;border-radius:40px;background:linear-gradient(120deg,#2455b9,#718cff,#c18bff);color:white;font-size:15px;line-height:1.4;box-shadow:0 0 20px #829bff44}
-.blue-button:active,.rainbow-next:active{transform:scale(.97)}
-.hint{font-size:12px;line-height:1.7;color:#c8dcff;margin-top:17px}
+body{margin:0;background:#0b1020;color:white;font-family:Georgia,serif;text-align:center;overflow-x:hidden}
+main{position:relative;z-index:2}
+.slide{display:none;min-height:100vh;min-height:100dvh;padding:28px 16px 40px;flex-direction:column;align-items:center;justify-content:center;gap:12px;animation:appear .8s ease}
+#welcome{display:flex;background:radial-gradient(ellipse at top,#263e72,#080d20)}
+#slide2{background:radial-gradient(ellipse at top,#283a66,#11172b)}
+#slide3{background:radial-gradient(ellipse at top,#572c5d,#21142f)}
+#videoSlide{background:radial-gradient(ellipse at top,#233c6b,#0c1226)}
+#slide5{background:radial-gradient(ellipse at top,#1d315f,#10152b)}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.eyebrow{font-size:11px;letter-spacing:3px;color:#c7dcff;margin:8px}
+h1{font-size:clamp(32px,9vw,50px);line-height:1.2;font-weight:normal;margin:10px 0}
+p{max-width:540px;font-size:16px;line-height:1.8;color:#e6e9ff;margin:8px auto}
+button{font-family:Georgia,serif;cursor:pointer}
+.blue-button,.rainbow-next{margin-top:18px;padding:15px 23px;border:1px solid #fff;border-radius:40px;background:linear-gradient(120deg,#718cff,#d78dff,#ff9fc9);color:white;font-size:15px;box-shadow:0 0 22px #bca6ff77}
+.heart,.moon{font-size:36px;animation:glow 2s infinite alternate}
+@keyframes glow{to{filter:drop-shadow(0 0 15px #b6d9ff);transform:scale(1.08)}}
+.hint{font-size:12px;color:#c6d9ff;margin-top:20px}
 .sky{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
-.star{position:absolute;color:#dce7ff;animation:twinkle 2.2s infinite alternate}
-@keyframes twinkle{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1.15)}}
-.butterfly{position:absolute;left:-55px;font-size:29px;filter:drop-shadow(0 0 8px #399cff);animation:butterflyFly 18s linear infinite}
-.butterfly.one{top:18%}.butterfly.two{top:48%;animation-delay:-7s}.butterfly.three{top:72%;animation-delay:-12s}
-@keyframes butterflyFly{0%{transform:translateX(0) translateY(0)}30%{transform:translateX(35vw) translateY(-24px) rotate(15deg)}65%{transform:translateX(75vw) translateY(20px) rotate(-12deg)}100%{transform:translateX(120vw) translateY(-12px)}}
-
-/* Gift */
-#slide3{max-height:100dvh;overflow-y:auto}
-.gift-photo{display:block;width:min(82vw,330px);max-height:39dvh;object-fit:contain;border-radius:15px}
-.gift-title{font-size:clamp(25px,6vw,32px);color:#ffe0ed;margin:9px 0}
-.gift-button{width:min(100%,360px);padding:17px 12px;border:2px solid #fff0f7;border-radius:18px;background:linear-gradient(135deg,#ff5ca8,#d92e83,#b71970);color:white;font-size:clamp(15px,4.2vw,19px);font-weight:bold;box-shadow:0 0 16px #ff76b8,0 0 30px #f42c9b66;animation:pinkPulse 1.5s infinite}
-@keyframes pinkPulse{50%{transform:scale(1.025);filter:brightness(1.12)}}
-.pink-sparkle{position:fixed;z-index:50;pointer-events:none;color:#ffd4ef;text-shadow:0 0 9px #fff;animation:pinkBurst 1s ease-out forwards}
-@keyframes pinkBurst{to{transform:translate(var(--dx),var(--dy)) scale(.2) rotate(150deg);opacity:0}}
-
-/* Video slides: portrait videos fill the available mobile width without being cropped */
-.video-box{width:min(100%,430px);margin:8px auto 12px;border:1px solid #8dc6ff;border-radius:17px;padding:6px;background:#080d20;box-shadow:0 0 20px #668fff33;overflow:hidden}
-.video-box video{display:block;width:100%;height:auto;max-height:56dvh;object-fit:contain;object-position:center;background:#030612;border-radius:10px}
-.moon{font-size:35px;filter:drop-shadow(0 0 12px #ffe7a8)}
-.video-caption{max-width:440px;font-size:15px;line-height:1.65}
-.luna-heading{font-size:clamp(28px,7vw,39px)}
-.rainbow-card{width:min(100%,430px);padding:4px;border-radius:23px;background:linear-gradient(120deg,#ff7eb3,#ffd36e,#a8ffcf,#79d7ff,#c5a3ff,#ff9bd5);background-size:300% 300%;animation:rainbowGlow 5s ease infinite;box-shadow:0 0 18px #ff9bd555}
-.rainbow-inner{padding:16px 13px;border-radius:19px;background:linear-gradient(145deg,#fff3fc,#fff9db,#e8f7ff)}
-.rainbow-inner p{font-size:clamp(17px,4.4vw,21px);font-weight:bold;line-height:1.6;color:#36234c}
+.star{position:absolute;color:#dce7ff;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{to{opacity:1;transform:scale(1.3)}}
+.butterfly{position:absolute;left:-50px;font-size:30px;animation:fly 18s linear infinite}
+.butterfly.two{top:45%;animation-delay:-6s}
+.butterfly.three{top:70%;animation-delay:-12s}
+.butterfly.one{top:20%}
+@keyframes fly{to{transform:translateX(115vw) translateY(-35px) rotate(30deg)}}
+.gift-photo{width:min(80vw,330px);max-height:42vh;object-fit:contain;border-radius:14px}
+.gift-title{color:#ffe0ed}
+.gift-button{padding:18px 16px;border:2px solid white;border-radius:18px;background:linear-gradient(120deg,#ff5ca8,#d92e83);color:white;font-size:18px;font-weight:bold;animation:pulse 1.3s infinite;box-shadow:0 0 25px #ff76b8}
+@keyframes pulse{50%{transform:scale(1.04);filter:brightness(1.2)}}
+.video-box{width:min(92vw,410px);border:1px solid #8dc6ff;border-radius:16px;padding:7px;background:#101d46;margin:12px auto}
+video{width:100%;max-height:55vh;display:block;border-radius:10px;background:#030612}
+.rainbow-card{width:min(92vw,450px);padding:5px;border-radius:25px;background:linear-gradient(120deg,#ff7eb3,#ffd36e,#a8ffcf,#79d7ff,#c5a3ff);background-size:300% 300%;animation:rainbowGlow 5s infinite;box-shadow:0 0 25px #ff9bd588}
+.rainbow-inner{padding:20px 14px;border-radius:21px;background:linear-gradient(145deg,#fff3fc,#fff9db,#e8f7ff)}
+.rainbow-inner p{color:#36234c;font-weight:bold;font-size:20px}
 @keyframes rainbowGlow{50%{background-position:100% 50%}}
 #lunaNextButton{display:none}
 
-/* Slide 6: uploaded full-page rainbow design */
-#slide6{padding:0;min-height:100vh;min-height:100dvh;position:relative;overflow:hidden;background:#ffeefa}
-.rainbow-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
-.rainbow-button{position:absolute;z-index:3;top:78%;left:50%;transform:translate(-50%,-50%);width:88%;height:12%;min-height:65px;border:0;border-radius:100px;background:transparent;color:transparent;box-shadow:none;animation:invisiblePulse 1.6s infinite;touch-action:manipulation}
-.rainbow-button:focus-visible{outline:3px solid #fff;outline-offset:2px}
-@keyframes invisiblePulse{50%{transform:translate(-50%,-50%) scale(1.025)}}
+/* Slide 6 */
+#slide6{position:relative;overflow:hidden;background:#fff0f8;padding:20px 12px}
+.rainbow-background{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:0;pointer-events:none}
+.rainbow-button{position:relative;z-index:3;width:min(90%,430px);min-height:82px;padding:18px 12px;border:7px solid #ffadd8;border-radius:100px;background:linear-gradient(135deg,#e3c6ff,#c8eaff,#ffd9ee);color:#75418e;font-family:Arial,sans-serif;font-size:clamp(20px,5vw,29px);font-weight:bold;box-shadow:0 0 15px #ff9bd7,0 0 28px #ffe58b,inset 0 0 12px white;animation:pulse 1.6s infinite}
+.rainbow-button:after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(110deg,transparent 20%,#ffffffc9 48%,transparent 70%);background-size:220% 100%;animation:shine 2s infinite;pointer-events:none}
+@keyframes shine{to{background-position:-150% 0}}
+.fairy-hint{position:relative;z-index:3;color:#89639d;text-shadow:0 1px 5px white;font-family:Arial,sans-serif}
 #fairyContainer{position:fixed;inset:0;z-index:100;pointer-events:none;overflow:hidden}
-.fairy{position:absolute;left:var(--x);top:var(--y);font-size:var(--size);filter:drop-shadow(0 0 8px var(--glow));animation:fairyFly var(--duration) ease-out forwards;will-change:transform,opacity}
-@keyframes fairyFly{0%{transform:translate(0,0) rotate(0) scale(.35);opacity:0}12%{opacity:1}48%{transform:translate(var(--drift),-45vh) rotate(160deg) scale(1.1);opacity:1}100%{transform:translate(var(--dx),-110vh) rotate(360deg) scale(.7);opacity:0}}
-.fairy-sparkle{position:absolute;pointer-events:none;animation:sparkleFly 1.8s ease-out forwards}
-@keyframes sparkleFly{to{transform:translateY(-150px) scale(1.5) rotate(100deg);opacity:0}}
+.fairy{position:absolute;left:var(--x);top:var(--y);font-size:var(--size);filter:drop-shadow(0 0 9px var(--glow));animation:fairyFly var(--duration) ease-out forwards}
+@keyframes fairyFly{0%{transform:translate(0,0) scale(.3);opacity:0}15%{opacity:1}55%{transform:translate(var(--drift),-50vh) rotate(180deg) scale(1.2);opacity:1}100%{transform:translate(var(--dx),-110vh) rotate(360deg);opacity:0}}
+.fairy-sparkle{position:absolute;animation:sparkleFly 1.8s forwards}
+@keyframes sparkleFly{to{transform:translateY(-160px) scale(1.5);opacity:0}}
 
-/* Slide 7: Greek-inspired royal letter */
-#slide7{isolation:isolate;overflow:hidden;background:radial-gradient(circle at top,#355486,#111b35 52%,#080e20);padding:28px 13px 35px}
-.greek-scene{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.greek-column{position:absolute;top:0;bottom:0;width:19px;background:linear-gradient(90deg,#a98b68,#fff0c9,#c4a06a);opacity:.45}
+/* Slide 7 love letter */
+#slide7{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(circle at top,#355486,#111b35 50%,#080e20);padding:24px 14px 35px}
+.greek-scene{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.greek-column{position:absolute;top:0;bottom:0;width:23px;background:linear-gradient(90deg,#a98b68,#fff0c9,#c4a06a);opacity:.5}
 .greek-column.left{left:3%}.greek-column.right{right:3%}
-.greek-moon{position:absolute;top:15px;left:7%;font-size:43px;color:#fff1c7}
-.greek-statue{position:absolute;top:13px;right:5%;font-size:clamp(47px,13vw,72px);opacity:.85;filter:drop-shadow(0 0 10px #d9bb82)}
-.letter-card{position:relative;width:min(100%,560px);padding:24px 15px 22px;border:2px solid #c99b52;border-radius:12px;background:linear-gradient(145deg,#fff4d9,#f6dfb5,#fff0cf);color:#17213b;box-shadow:0 0 30px #d8b66c33,inset 0 0 18px #b7804233}
-.letter-kicker{font-size:11px;letter-spacing:2.5px;color:#775222}
-.letter-title{font-size:clamp(30px,8vw,44px);font-style:italic;color:#172b53;margin:8px 0 13px}
-.letter-rule{color:#a87932;letter-spacing:4px;margin:10px 0}
+.greek-moon{position:absolute;top:15px;left:8%;font-size:45px}
+.greek-statue{position:absolute;top:15px;right:5%;font-size:70px;opacity:.8}
+.letter-card{width:min(100%,560px);padding:25px 16px;border:2px solid #c99b52;border-radius:12px;background:linear-gradient(145deg,#fff4d9,#f6dfb5,#fff0cf);color:#17213b;box-shadow:0 0 35px #d8b66c33}
+.letter-kicker{font-size:11px;letter-spacing:3px;color:#775222}
+.letter-title{font-size:clamp(32px,8vw,45px);font-style:italic;color:#172b53;margin:8px 0 14px}
+.letter-rule{color:#a87932;letter-spacing:5px}
 .letter-card p{font-size:clamp(14px,3.8vw,17px);line-height:1.65;color:#22243b;margin:12px auto}
-.letter-signoff{font-size:clamp(25px,7vw,33px);font-style:italic;color:#17305b;line-height:1.4;margin-top:15px}
+.letter-signoff{font-size:30px;font-style:italic;color:#17305b;margin-top:18px}
 .letter-footer{font-size:12px!important;color:#775222!important}
-@media(max-width:360px){.slide{padding-left:12px;padding-right:12px}.letter-card{padding:20px 12px}.letter-card p{font-size:14px;line-height:1.58}}
-@media(prefers-reduced-motion:reduce){.star,.butterfly,.heart,.gift-button,.rainbow-card{animation-duration:8s}}
+@media(max-width:360px){.letter-card{padding:20px 12px}.letter-card p{font-size:14px}}
 </style>
 </head>
 
 <body>
-<div class="sky" id="sky" aria-hidden="true">
-  <div class="butterfly one">🦋</div>
-  <div class="butterfly two">🦋</div>
-  <div class="butterfly three">🦋</div>
+<div class="sky" id="sky">
+<div class="butterfly one">🦋</div><div class="butterfly two">🦋</div><div class="butterfly three">🦋</div>
 </div>
 
 <main>
 <section id="welcome" class="slide">
-  <div class="eyebrow">✦ A LITTLE MAGIC FOR YOU ✦</div>
-  <div class="heart">💙</div>
-  <h1>Hey,<br>Birthday Boy...!</h1>
-  <p>Somewhere beneath a thousand stars,<br>someone made a little world<br>just for you. 💙</p>
-  <button class="blue-button" onclick="showSlide('slide2')">Open Your Surprise ✨</button>
-  <div class="hint">FOLLOW THE LITTLE BUTTERFLY 🦋</div>
+<div class="eyebrow">✦ A LITTLE MAGIC FOR YOU ✦</div><div class="heart">💙</div>
+<h1>Hey,<br>Birthday Boy...!</h1>
+<p>Somewhere beneath a thousand stars,<br>someone made a little world<br>just for you. 💙</p>
+<button class="blue-button" onclick="showSlide('slide2')">Open Your Surprise ✨</button>
+<div class="hint">FOLLOW THE LITTLE BUTTERFLY 🦋</div>
 </section>
 
 <section id="slide2" class="slide">
-  <div class="eyebrow">✦ A LITTLE WORLD MADE FOR YOU ✦</div>
-  <div class="heart">♡</div>
-  <h1>Happy Birthday,<br>My Love 💙</h1>
-  <p>If I could give you one thing in this world, it would be the chance to see yourself through my eyes.</p>
-  <p>Maybe then you'd understand just how special you are to me. 🦋</p>
-  <p>And this little universe? It's just the beginning of everything I want to show you. ♡</p>
-  <button class="blue-button" onclick="showSlide('slide3')">There's More for You 💌</button>
+<div class="eyebrow">✦ A LITTLE WORLD MADE FOR YOU ✦</div><div class="heart">♡</div>
+<h1>Happy Birthday,<br>My Love 💙</h1>
+<p>If I could give you one thing in this world, it would be the chance to see yourself through my eyes.</p>
+<p>Maybe then you'd understand just how special you are to me. 🦋</p>
+<p>And this little universe? It's just the beginning of everything I want to show you. ♡</p>
+<button class="blue-button" onclick="showSlide('slide3')">There's More for You 💌</button>
 </section>
 
 <section id="slide3" class="slide">
-  <div class="eyebrow">✦ A LITTLE SURPRISE ✦</div>
-  <img class="gift-photo" src="Screenshot_2026-10-19-04-21-50-94_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Birthday gift box">
-  <h2 class="gift-title">A Little Gift for You 💗</h2>
-  <p>There's something special waiting inside...</p>
-  <button class="gift-button" onclick="openGift()">✨ TAP TO OPEN THE BOX 🎁</button>
-  <div class="hint">♡ Made with love, just for you ♡</div>
+<div class="eyebrow">✦ A LITTLE SURPRISE ✦</div>
+<img class="gift-photo" src="Screenshot_2026-10-19-04-21-50-94_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Pink floral gift box">
+<h2 class="gift-title">A Little Gift for You 💗</h2>
+<p>There's something special waiting inside...</p>
+<button class="gift-button" onclick="openGift()">✨ TAP TO OPEN THE BOX 🎁</button>
+<div class="hint">♡ Made with love, just for you ♡</div>
 </section>
 
 <section id="videoSlide" class="slide">
-  <div class="eyebrow">✦ YOUR SURPRISE CONTINUES ✦</div>
-  <div class="moon">🌙</div>
-  <h1 style="font-size:clamp(28px,7vw,40px)">A Little Birthday Memory 💙</h1>
-  <div class="video-box">
-    <video id="birthdayVideo" controls playsinline preload="metadata">
-      <source src="gemini_generated_video_e7915351.mp4" type="video/mp4">
-      Your browser does not support video playback.
-    </video>
-  </div>
-  <p class="video-caption">A little birthday memory, made with love, just for you. 💙</p>
-  <button class="blue-button" onclick="goToWishSlide()">Continue to Your Wish 🌠</button>
+<div class="eyebrow">✦ YOUR SURPRISE CONTINUES ✦</div><div class="moon">🌙</div>
+<h1 style="font-size:clamp(30px,7vw,42px)">A Little Birthday Memory 💙</h1>
+<div class="video-box"><video id="birthdayVideo" controls playsinline preload="metadata"><source src="gemini_generated_video_e7915351.mp4" type="video/mp4"></video></div>
+<p>A little birthday memory, made with love, just for you. 💙</p>
+<button class="blue-button" onclick="goToWishSlide()">Continue to Your Wish 🌠</button>
 </section>
 
 <section id="slide5" class="slide">
-  <div class="eyebrow">✦ A LITTLE WISH TO THE MOON ✦</div>
-  <div class="moon">🌙</div>
-  <h1 class="luna-heading">Your Magical Wish ✨</h1>
-  <div class="video-box">
-    <video id="lunaVideo" controls playsinline preload="metadata">
-      <source src="gemini_generated_video_c2f2162b.mp4" type="video/mp4">
-      Your browser does not support video playback.
-    </video>
-  </div>
-  <div class="rainbow-card">
-    <div class="rainbow-inner">
-      <p>Close your eyes, make a wish, and blow the candle, love 🩵💛</p>
-    </div>
-  </div>
-  <p class="video-caption">🌈 A little rainbow, a little moonlight, and all my love. ♡</p>
-  <button id="lunaNextButton" class="rainbow-next" onclick="continueAfterWish()">Continue Your Magic ✨</button>
+<div class="eyebrow">✦ A LITTLE WISH TO THE MOON ✦</div><div class="moon">🌙</div>
+<h1 style="font-size:clamp(30px,7vw,42px)">Your Magical Wish ✨</h1>
+<div class="video-box"><video id="lunaVideo" controls playsinline preload="metadata"><source src="gemini_generated_video_c2f2162b.mp4" type="video/mp4"></video></div>
+<div class="rainbow-card"><div class="rainbow-inner"><p>Close your eyes, make a wish, and blow the candle, love 🩵💛</p></div></div>
+<p>🌈 A little rainbow, a little moonlight, and all my love. ♡</p>
+<button id="lunaNextButton" class="rainbow-next" onclick="continueAfterWish()">Continue Your Magic ✨</button>
 </section>
 
-<!-- SLIDE 6: THE COMPLETE UPLOADED RAINBOW DESIGN -->
 <section id="slide6" class="slide">
-  <img class="rainbow-background"
-    src="file_0000000071bc821196f365055d6a596b.png"
-    alt="Pastel rainbow clouds, a butterfly and a birthday surprise">
-  <button id="rainbowButton" class="rainbow-button"
-    aria-label="Follow the rainbow to the next birthday surprise"></button>
-  <div id="fairyContainer" aria-hidden="true"></div>
+<img class="rainbow-background" src="file_0000000071bc821196f365055d6a596b.png" alt="Pastel rainbow sky">
+<button id="rainbowButton" class="rainbow-button">Follow the rainbow 🌈 ♡</button>
+<p class="fairy-hint">One little click, one more lovely surprise ✨</p>
+<div id="fairyContainer"></div>
 </section>
 
-<!-- SLIDE 7: GREEK-INSPIRED LOVE LETTER -->
 <section id="slide7" class="slide">
-  <div class="greek-scene" aria-hidden="true">
-    <div class="greek-column left"></div>
-    <div class="greek-column right"></div>
-    <div class="greek-moon">☾</div>
-    <div class="greek-statue">🏛️</div>
-  </div>
-  <div class="letter-card">
-    <div style="font-size:23px">👑 ✦ 💙 ✦ 👑</div>
-    <div class="letter-kicker">A LITTLE NOTE FOR</div>
-    <h2 class="letter-title">My Little Prince 💙</h2>
-    <div class="letter-rule">──── ✦ ────</div>
-
-    <p>Happiest birthday to my favourite headache and my forever favourite person. 🤭💙</p>
-
-    <p>I know we fight, we get stubborn, and sometimes we drive each other crazy. 😂 But what matters most is that we solve our problems and keep choosing each other. Thank you for never letting go of my hand. 🥹🤍</p>
-
-    <p>I don't want you to change who you are, my love, but I do want you to keep trying, growing, and understanding me — just as I'll keep trying for you. 🤝💙</p>
-
-    <p>We don't need to be perfect; we just need to keep choosing us. ✨</p>
-
-    <p>I want us to achieve great things together, celebrate each other's success, and stay hand in hand until we're old and grey. 🤍🌙</p>
-
-    <p>I hope you loved my little surprise, because I'm planning to annoy you with love and surprises for the next 100 years, if possible. 🤪😂🎂</p>
-
-    <p>I love you more than I can explain, Your Highness. Now don't let this note make your ego bigger! 😤💋</p>
-
-    <div class="letter-rule">──── ♡ ────</div>
-    <div class="letter-signoff">Always yours,<br>your girl ♡</div>
-    <div style="font-size:23px;margin:12px">💙 🦋 ✨ 🦋 💙</div>
-    <p class="letter-footer">To many more birthdays together... ♡</p>
-  </div>
-  <button class="blue-button" onclick="showSlide('welcome')">Read Our Little Universe Again 💙</button>
+<div class="greek-scene" aria-hidden="true"><div class="greek-column left"></div><div class="greek-column right"></div><div class="greek-moon">☾</div><div class="greek-statue">🏛️</div></div>
+<div class="letter-card">
+<div style="font-size:23px">👑 ✦ 💙 ✦ 👑</div>
+<div class="letter-kicker">A LITTLE NOTE FOR</div>
+<h2 class="letter-title">My Little Prince 💙</h2>
+<div class="letter-rule">──── ✦ ────</div>
+<p>Happiest birthday to my favourite headache and my forever favourite person. 🤭💙</p>
+<p>I know we fight, we get stubborn, and sometimes we drive each other crazy. 😂 But what matters most is that we solve our problems and keep choosing each other. Thank you for never letting go of my hand. 🥹🤍</p>
+<p>I don't want you to change who you are, my love, but I do want you to keep trying, growing, and understanding me — just as I'll keep trying for you. 🤝💙</p>
+<p>We don't need to be perfect; we just need to keep choosing us. ✨</p>
+<p>I want us to achieve great things together, celebrate each other's success, and stay hand in hand until we're old and grey. 🤍🌙</p>
+<p>I hope you loved my little surprise, because I'm planning to annoy you with love and surprises for the next 100 years, if possible. 🤪😂🎂</p>
+<p>I love you more than I can explain, Your Highness. Now don't let this note make your ego bigger! 😤💋</p>
+<div class="letter-rule">──── ♡ ────</div>
+<div class="letter-signoff">Always yours,<br>your girl ♡</div>
+<div style="font-size:24px;margin:12px">💙 🦋 ✨ 🦋 💙</div>
+<p class="letter-footer">To many more birthdays together... ♡</p>
+</div>
+<button class="blue-button" onclick="showSlide('welcome')">Read Our Little Universe Again 💙</button>
 </section>
 </main>
 
 <script>
-"use strict";
+const sky=document.getElementById("sky");
+const slideIds=["welcome","slide2","slide3","videoSlide","slide5","slide6","slide7"];
+const birthdayVideo=document.getElementById("birthdayVideo");
+const lunaVideo=document.getElementById("lunaVideo");
+const lunaNextButton=document.getElementById("lunaNextButton");
+const rainbowButton=document.getElementById("rainbowButton");
+const fairyContainer=document.getElementById("fairyContainer");
+let lunaButtonTimer=null;
+let rainbowClicked=false;
 
-const slideIds = [
-  "welcome", "slide2", "slide3",
-  "videoSlide", "slide5", "slide6", "slide7"
-];
-
-const sky = document.getElementById("sky");
-const birthdayVideo = document.getElementById("birthdayVideo");
-const lunaVideo = document.getElementById("lunaVideo");
-const lunaNextButton = document.getElementById("lunaNextButton");
-const rainbowButton = document.getElementById("rainbowButton");
-const fairyContainer = document.getElementById("fairyContainer");
-
-let lunaButtonTimer = null;
-let rainbowClicked = false;
-
-/* Create stars once */
-for (let i = 0; i < 55; i++) {
-  const star = document.createElement("span");
-  star.className = "star";
-  star.textContent = "✦";
-  star.style.left = Math.random() * 100 + "%";
-  star.style.top = Math.random() * 100 + "%";
-  star.style.fontSize = (6 + Math.random() * 8) + "px";
-  star.style.animationDelay = Math.random() * 3 + "s";
-  sky.appendChild(star);
+for(let i=0;i<65;i++){
+ const star=document.createElement("span");
+ star.className="star";star.textContent="✦";
+ star.style.left=Math.random()*100+"%";
+ star.style.top=Math.random()*100+"%";
+ star.style.fontSize=(Math.random()*9+5)+"px";
+ star.style.animationDelay=Math.random()*3+"s";
+ sky.appendChild(star);
 }
 
-/* One navigation function controls all seven slides */
-function showSlide(id) {
-  const target = document.getElementById(id);
-  if (!target) {
-    console.error("Missing slide:", id);
-    return;
-  }
-
-  slideIds.forEach(slideId => {
-    document.getElementById(slideId).style.display = "none";
-  });
-
-  target.style.display = "flex";
-
-  if (id !== "videoSlide") birthdayVideo.pause();
-
-  if (id !== "slide5") {
-    lunaVideo.pause();
-    clearTimeout(lunaButtonTimer);
-  }
-
-  if (id === "slide5") lunaNextButton.style.display = "none";
-
-  target.style.animation = "none";
-  void target.offsetWidth;
-  target.style.animation = "fadeIn .65s ease both";
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
+function showSlide(id){
+ slideIds.forEach(slideId=>document.getElementById(slideId).style.display="none");
+ const target=document.getElementById(id);
+ if(!target)return;
+ target.style.display="flex";
+ if(id!=="videoSlide")birthdayVideo.pause();
+ if(id!=="slide5"){lunaVideo.pause();clearTimeout(lunaButtonTimer);}
+ if(id==="slide5")lunaNextButton.style.display="none";
+ target.style.animation="none";void target.offsetWidth;
+ target.style.animation="appear .8s ease";
+ window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* Gift sparkle transition */
-function openGift() {
-  const button = document.querySelector(".gift-button");
-  if (button.disabled) return;
-  button.disabled = true;
-
-  const rect = button.getBoundingClientRect();
-  const symbols = ["✦", "✧", "♡", "✨", "⋆"];
-
-  for (let i = 0; i < 35; i++) {
-    const sparkle = document.createElement("span");
-    sparkle.className = "pink-sparkle";
-    sparkle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    sparkle.style.left = rect.left + rect.width / 2 + "px";
-    sparkle.style.top = rect.top + rect.height / 2 + "px";
-
-    const angle = Math.random() * Math.PI * 2;
-    const distance = 40 + Math.random() * 150;
-    sparkle.style.setProperty("--dx", Math.cos(angle) * distance + "px");
-    sparkle.style.setProperty("--dy", Math.sin(angle) * distance + "px");
-
-    document.body.appendChild(sparkle);
-    sparkle.addEventListener("animationend", () => sparkle.remove(), { once: true });
-  }
-
-  setTimeout(() => {
-    showSlide("videoSlide");
-    button.disabled = false;
-  }, 850);
+function openGift(){
+ const button=document.querySelector(".gift-button");
+ if(button.disabled)return;
+ button.disabled=true;
+ const rect=button.getBoundingClientRect();
+ const symbols=["✦","✧","♡","✨","⋆"];
+ for(let i=0;i<40;i++){
+  const sparkle=document.createElement("span");
+  sparkle.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  sparkle.style.cssText=`position:fixed;z-index:100;pointer-events:none;color:#ffb5da;left:${rect.left+rect.width/2}px;top:${rect.top+rect.height/2}px;animation:giftBurst 1s forwards`;
+  const angle=Math.random()*Math.PI*2,distance=40+Math.random()*150;
+  sparkle.style.setProperty("--dx",Math.cos(angle)*distance+"px");
+  sparkle.style.setProperty("--dy",Math.sin(angle)*distance+"px");
+  document.body.appendChild(sparkle);
+  sparkle.addEventListener("animationend",()=>sparkle.remove(),{once:true});
+ }
+ setTimeout(()=>{showSlide("videoSlide");button.disabled=false;},900);
 }
 
-/* Slide 4 -> Slide 5 */
-function goToWishSlide() {
-  showSlide("slide5");
-}
+function goToWishSlide(){showSlide("slide5");}
 
-/* Slide 5: show the next button when video ends, or after 20 seconds */
-lunaVideo.addEventListener("play", () => {
-  lunaNextButton.style.display = "none";
-  clearTimeout(lunaButtonTimer);
-  lunaButtonTimer = setTimeout(() => {
-    lunaNextButton.style.display = "inline-block";
-  }, 20000);
+lunaVideo.addEventListener("play",()=>{
+ lunaNextButton.style.display="none";clearTimeout(lunaButtonTimer);
+ lunaButtonTimer=setTimeout(()=>lunaNextButton.style.display="inline-block",20000);
+});
+lunaVideo.addEventListener("pause",()=>clearTimeout(lunaButtonTimer));
+lunaVideo.addEventListener("ended",()=>{
+ clearTimeout(lunaButtonTimer);
+ lunaNextButton.style.display="inline-block";
 });
 
-lunaVideo.addEventListener("pause", () => clearTimeout(lunaButtonTimer));
+/* FIXED: the old alert is gone; this now opens Slide 6. */
+function continueAfterWish(){showSlide("slide6");}
 
-lunaVideo.addEventListener("ended", () => {
-  clearTimeout(lunaButtonTimer);
-  lunaNextButton.style.display = "inline-block";
-});
+rainbowButton.addEventListener("click",()=>{
+ if(rainbowClicked)return;
+ rainbowClicked=true;
+ rainbowButton.disabled=true;
+ rainbowButton.textContent="Magic is flying to you! ✨";
+ const colors=["#ff5ca8","#ff9b42","#ffe45e","#61e6a7","#56cfff","#a879ff","#ff79e8"];
 
-/* FIX: no old alert popup. Continue directly to Slide 6. */
-function continueAfterWish() {
-  showSlide("slide6");
+ for(let i=0;i<55;i++){
+  setTimeout(()=>{
+   const fairy=document.createElement("span");
+   fairy.className="fairy";
+   fairy.textContent=["🧚‍♀️","🧚","✨"][Math.floor(Math.random()*3)];
+   const color=colors[Math.floor(Math.random()*colors.length)];
+   fairy.style.setProperty("--x",Math.random()*95+"vw");
+   fairy.style.setProperty("--y",45+Math.random()*50+"vh");
+   fairy.style.setProperty("--dx",Math.random()*70-35+"vw");
+   fairy.style.setProperty("--drift",Math.random()*50-25+"vw");
+   fairy.style.setProperty("--size",18+Math.random()*18+"px");
+   fairy.style.setProperty("--duration",2.5+Math.random()*2+"s");
+   fairy.style.setProperty("--glow",color);
+   fairyContainer.appendChild(fairy);
+   fairy.addEventListener("animationend",()=>fairy.remove(),{once:true});
+  },i*50);
+ }
+
+ for(let i=0;i<55;i++){
+  setTimeout(()=>{
+   const sparkle=document.createElement("span");
+   sparkle.className="fairy-sparkle";
+   sparkle.textContent=["✦","✨","⋆","♡"][Math.floor(Math.random()*4)];
+   sparkle.style.left=Math.random()*100+"vw";
+   sparkle.style.top=Math.random()*100+"vh";
+   sparkle.style.color=colors[Math.floor(Math.random()*colors.length)];
+   sparkle.style.fontSize=14+Math.random()*22+"px";
+   fairyContainer.appendChild(sparkle);
+   sparkle.addEventListener("animationend",()=>sparkle.remove(),{once:true});
+  },i*40);
+ }
+
+ setTimeout(()=>{
+  showSlide("slide7");
+  fairyContainer.innerHTML="";
+  rainbowClicked=false;
+  rainbowButton.disabled=false;
+  rainbowButton.textContent="Follow the rainbow 🌈 ♡";
+ },2800);
 }
 
-/* Slide 6: tap the visible button printed on the uploaded image.
-   Rainbow fairies fly over the screen, then Slide 7 opens. */
-rainbowButton.addEventListener("click", () => {
-  if (rainbowClicked) return;
+const burstStyle=document.createElement("style");
+burstStyle.textContent="@keyframes giftBurst{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}";
+document.head.appendChild(burstStyle);
 
-  rainbowClicked = true;
-  rainbowButton.disabled = true;
-
-  const colors = [
-    "#ff5ca8", "#ff9b42", "#ffe45e",
-    "#61e6a7", "#56cfff", "#a879ff", "#ff79e8"
-  ];
-
-  const fairyIcons = ["🧚‍♀️", "🧚", "✨"];
-
-  for (let i = 0; i < 60; i++) {
-    setTimeout(() => {
-      const fairy = document.createElement("span");
-      fairy.className = "fairy";
-      fairy.textContent = fairyIcons[Math.floor(Math.random() * fairyIcons.length)];
-
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      fairy.style.setProperty("--x", Math.random() * 95 + "vw");
-      fairy.style.setProperty("--y", 45 + Math.random() * 50 + "vh");
-      fairy.style.setProperty("--dx", (Math.random() * 70 - 35) + "vw");
-      fairy.style.setProperty("--drift", (Math.random() * 50 - 25) + "vw");
-      fairy.style.setProperty("--size", (18 + Math.random() * 17) + "px");
-      fairy.style.setProperty("--duration", (2.5 + Math.random() * 1.5) + "s");
-      fairy.style.setProperty("--glow", color);
-
-      fairyContainer.appendChild(fairy);
-      fairy.addEventListener("animationend", () => fairy.remove(), { once: true });
-    }, i * 35);
-  }
-
-  for (let i = 0; i < 55; i++) {
-    setTimeout(() => {
-      const sparkle = document.createElement("span");
-      sparkle.className = "fairy-sparkle";
-      sparkle.textContent = ["✦", "✨", "⋆", "♡"][Math.floor(Math.random() * 4)];
-      sparkle.style.left = Math.random() * 100 + "vw";
-      sparkle.style.top = Math.random() * 100 + "vh";
-      sparkle.style.color = colors[Math.floor(Math.random() * colors.length)];
-      sparkle.style.fontSize = (14 + Math.random() * 20) + "px";
-
-      fairyContainer.appendChild(sparkle);
-      sparkle.addEventListener("animationend", () => sparkle.remove(), { once: true });
-    }, i * 35);
-  }
-
-  setTimeout(() => {
-    showSlide("slide7");
-    fairyContainer.replaceChildren();
-    rainbowClicked = false;
-    rainbowButton.disabled = false;
-  }, 2800);
-});
-
-/* Start at Slide 1 */
 showSlide("welcome");
 </script>
 </body>
