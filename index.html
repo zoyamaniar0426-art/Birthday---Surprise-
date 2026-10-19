@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +6,7 @@
 <title>A Little Magic For You 💙</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -130,10 +127,7 @@ section {
   animation: appear 1.2s ease both;
 }
 
-#slide2,
-#slide3,
-#videoSlide,
-#slide5 {
+#slide2, #slide3, #videoSlide, #slide5 {
   display: none;
 }
 
@@ -184,9 +178,7 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
-button:active {
-  transform: scale(.97);
-}
+button:active { transform: scale(.97); }
 
 .blue-button {
   margin-top: 24px;
@@ -205,7 +197,7 @@ button:active {
   margin-top: 30px;
 }
 
-/* SLIDE 3: ORIGINAL GIFT PHOTO */
+/* SLIDE 3: GIFT PHOTO */
 
 #slide3 {
   max-height: 94vh;
@@ -237,7 +229,6 @@ button:active {
 }
 
 .gift-button {
-  position: relative;
   width: 100%;
   max-width: 360px;
   padding: 19px 12px;
@@ -254,14 +245,8 @@ button:active {
 }
 
 @keyframes pinkPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 12px #ff76b8, 0 0 24px #f42c9b77;
-  }
-  50% {
-    transform: scale(1.035);
-    box-shadow: 0 0 22px #ff9bce, 0 0 42px #f42c9b;
-  }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 12px #ff76b8, 0 0 24px #f42c9b77; }
+  50% { transform: scale(1.035); box-shadow: 0 0 22px #ff9bce, 0 0 42px #f42c9b; }
 }
 
 .tap-hint {
@@ -269,8 +254,6 @@ button:active {
   font-size: 12px;
   margin-top: 12px;
 }
-
-/* PINK SPARKLE BURST */
 
 .pink-sparkle {
   position: fixed;
@@ -282,18 +265,12 @@ button:active {
 }
 
 @keyframes pinkBurst {
-  0% {
-    opacity: 0;
-    transform: translate(0,0) scale(.2) rotate(0deg);
-  }
+  0% { opacity: 0; transform: translate(0,0) scale(.2) rotate(0deg); }
   15% { opacity: 1; }
-  100% {
-    opacity: 0;
-    transform: translate(var(--dx),var(--dy)) scale(1.5) rotate(140deg);
-  }
+  100% { opacity: 0; transform: translate(var(--dx),var(--dy)) scale(1.5) rotate(140deg); }
 }
 
-/* VIDEO BOX */
+/* VIDEO AND LUNA SLIDES */
 
 .video-box {
   border: 1px solid #8dc6ff;
@@ -312,14 +289,6 @@ video {
   background: #030612;
 }
 
-/* SLIDE 5: LUNA RAINBOW */
-
-.luna-heading {
-  color: #e4dcff;
-  text-shadow: 0 0 18px #9b8cff, 0 0 30px #538cff;
-  font-size: clamp(27px, 7vw, 38px);
-}
-
 .moon {
   font-size: 42px;
   margin: 8px 0;
@@ -331,19 +300,16 @@ video {
   to { filter: drop-shadow(0 0 22px #fff0b8); }
 }
 
+.luna-heading {
+  color: #e4dcff;
+  text-shadow: 0 0 18px #9b8cff, 0 0 30px #538cff;
+  font-size: clamp(27px, 7vw, 38px);
+}
+
 .rainbow-card {
-  position: relative;
   padding: 5px;
   border-radius: 25px;
-  background: linear-gradient(
-    120deg,
-    #ff7eb3,
-    #ffd36e,
-    #a8ffcf,
-    #79d7ff,
-    #c5a3ff,
-    #ff9bd5
-  );
+  background: linear-gradient(120deg, #ff7eb3, #ffd36e, #a8ffcf, #79d7ff, #c5a3ff, #ff9bd5);
   background-size: 300% 300%;
   animation: rainbowGlow 5s ease infinite;
   box-shadow: 0 0 18px #ff9bd588, 0 0 38px #9b8cff55;
@@ -365,14 +331,8 @@ video {
 }
 
 @keyframes rainbowGlow {
-  0%, 100% {
-    background-position: 0% 50%;
-    box-shadow: 0 0 18px #ff9bd588, 0 0 38px #9b8cff55;
-  }
-  50% {
-    background-position: 100% 50%;
-    box-shadow: 0 0 25px #9beaffaa, 0 0 45px #e9a6ff77;
-  }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .luna-caption {
@@ -386,13 +346,7 @@ video {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .star,
-  .butterfly,
-  .glitter,
-  .heart,
-  .gift-button,
-  .rainbow-card,
-  .moon {
+  .star, .butterfly, .glitter, .heart, .gift-button, .rainbow-card, .moon {
     animation-duration: 8s;
   }
 }
@@ -400,7 +354,6 @@ video {
 </head>
 
 <body>
-
 <div class="sky" id="sky">
   <div class="butterfly one">🦋</div>
   <div class="butterfly two">🦋</div>
@@ -409,135 +362,90 @@ video {
 
 <main>
 
-  <!-- SLIDE 1: WELCOME -->
-
+  <!-- SLIDE 1 -->
   <section id="welcome">
     <div class="eyebrow">✦ A LITTLE MAGIC FOR YOU ✦</div>
     <div class="heart">💙</div>
-
     <h1>Hey,<br>Birthday Boy...!</h1>
-
     <p>
       Somewhere beneath a thousand stars,<br>
       someone made a little world<br>
       just for you. 💙
     </p>
-
     <button class="blue-button" onclick="showSlide('slide2')">
       Open Your Surprise ✨
     </button>
-
     <div class="hint">FOLLOW THE LITTLE BUTTERFLY 🦋</div>
   </section>
 
-  <!-- SLIDE 2: LOVE MESSAGE -->
-
+  <!-- SLIDE 2 -->
   <section id="slide2">
     <div class="eyebrow">✦ A LITTLE WORLD MADE FOR YOU ✦</div>
     <div class="heart">♡</div>
-
     <h1>Happy Birthday,<br>My Love 💙</h1>
-
     <p>
       If I could give you one thing in this world,
       it would be the chance to see yourself
       through my eyes.
     </p>
-
     <p>
       Maybe then you'd understand just how
       special you are to me. 🦋
     </p>
-
     <p>
       And this little universe? It's just the beginning
       of everything I want to show you. ♡
     </p>
-
     <button class="blue-button" onclick="showSlide('slide3')">
       There's More for You 💌
     </button>
   </section>
 
-  <!-- SLIDE 3: YOUR ORIGINAL GIFT PHOTO -->
-
+  <!-- SLIDE 3 -->
   <section id="slide3">
     <div class="eyebrow">✦ A LITTLE SURPRISE ✦</div>
-
     <img
       class="gift-photo"
       src="Screenshot_2026-10-19-04-21-50-94_99c04817c0de5652397fc8b56c3b3817.jpg"
       alt="A pink floral gift box with a satin bow"
     >
-
     <h2 class="gift-title">A Little Gift for You 💗</h2>
-
-    <p class="gift-subtitle">
-      There's something special waiting inside...
-    </p>
-
+    <p class="gift-subtitle">There's something special waiting inside...</p>
     <button class="gift-button" onclick="openGift()">
       ✨ TAP TO OPEN THE BOX 🎁
     </button>
-
     <div class="tap-hint">♡ Made with love, just for you ♡</div>
   </section>
 
-  <!-- SLIDE 4: TEMPORARY PLACEHOLDER -->
-  <!-- We will add the birthday video here tomorrow. -->
-
+  <!-- SLIDE 4: VIDEO TO BE ADDED TOMORROW -->
   <section id="videoSlide">
     <div class="eyebrow">✦ YOUR SURPRISE CONTINUES ✦</div>
-
     <div class="moon">🌙</div>
-
     <h1 style="font-size:clamp(30px,7vw,42px);">
       A Little Something<br>Just for You 💗
     </h1>
-
     <div class="video-box">
-      <p>
-        Your next surprise is waiting beneath the moon.
-      </p>
-      <p>
-        The birthday video for this slide will be added tomorrow. 🩵
-      </p>
+      <p>Your birthday video for this slide will be added tomorrow. 🩵</p>
     </div>
-
-    <button class="blue-button" onclick="showSlide('slide5')">
-      Continue to Your Wish 🌈
-    </button>
+    <p>Get ready for the next little surprise. 🌈</p>
   </section>
 
-  <!-- SLIDE 5: CELESTIAL LUNA RAINBOW VIDEO -->
-
+  <!-- SLIDE 5: LUNA RAINBOW VIDEO -->
   <section id="slide5">
     <div class="eyebrow">✦ A LITTLE WISH TO THE MOON ✦</div>
-
     <div class="moon">🌙</div>
-
     <h1 class="luna-heading">Your Magical Wish 🦋</h1>
 
     <div class="video-box">
-      <video
-        id="lunaVideo"
-        controls
-        playsinline
-        preload="metadata"
-      >
-        <source
-          src="gemini_generated_video_c2f2162b.mp4"
-          type="video/mp4"
-        >
+      <video id="lunaVideo" controls playsinline preload="metadata">
+        <source src="gemini_generated_video_c2f2162b.mp4" type="video/mp4">
         Your browser does not support video playback.
       </video>
     </div>
 
     <div class="rainbow-card">
       <div class="rainbow-inner">
-        <p>
-          Close your eyes, make a wish, and blow the candle, love 🩵💛
-        </p>
+        <p>Close your eyes, make a wish, and blow the candle, love 🩵💛</p>
       </div>
     </div>
 
@@ -559,20 +467,14 @@ video {
 <script>
 const sky = document.getElementById("sky");
 const butterflies = document.querySelectorAll(".butterfly");
-const slideIds = [
-  "welcome",
-  "slide2",
-  "slide3",
-  "videoSlide",
-  "slide5"
-];
-
+const slideIds = ["welcome", "slide2", "slide3", "videoSlide", "slide5"];
 const lunaVideo = document.getElementById("lunaVideo");
 const lunaNextButton = document.getElementById("lunaNextButton");
 
+let slide5Timer = null;
 let lunaButtonTimer = null;
 
-/* TWINKLING STARS */
+/* STARS */
 
 for (let i = 0; i < 65; i++) {
   const star = document.createElement("span");
@@ -610,16 +512,15 @@ setInterval(() => {
     glitter.style.fontSize = (7 + Math.random() * 8) + "px";
 
     sky.appendChild(glitter);
-
-    glitter.addEventListener("animationend", () => {
-      glitter.remove();
-    }, { once: true });
+    glitter.addEventListener("animationend", () => glitter.remove(), { once: true });
   });
 }, 130);
 
 /* SLIDE NAVIGATION */
 
 function showSlide(slideId) {
+  clearTimeout(slide5Timer);
+
   slideIds.forEach((id) => {
     document.getElementById(id).style.display = "none";
   });
@@ -631,7 +532,6 @@ function showSlide(slideId) {
   void nextSlide.offsetWidth;
   nextSlide.style.animation = "appear 1.2s ease both";
 
-  /* Stop videos when leaving their slide. */
   if (slideId !== "slide5") {
     lunaVideo.pause();
     clearTimeout(lunaButtonTimer);
@@ -642,9 +542,16 @@ function showSlide(slideId) {
   }
 
   window.scrollTo({ top: 0, behavior: "smooth" });
+
+  /* AUTOMATICALLY OPEN SLIDE 5 FIVE SECONDS AFTER SLIDE 4 */
+  if (slideId === "videoSlide") {
+    slide5Timer = setTimeout(() => {
+      showSlide("slide5");
+    }, 5000);
+  }
 }
 
-/* PINK SPARKLE BURST WHEN GIFT IS OPENED */
+/* PINK SPARKLE BURST */
 
 function openGift() {
   const button = document.querySelector(".gift-button");
@@ -658,8 +565,7 @@ function openGift() {
   for (let i = 0; i < 45; i++) {
     const sparkle = document.createElement("span");
     sparkle.className = "pink-sparkle";
-    sparkle.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
+    sparkle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
 
     sparkle.style.left = (rect.left + rect.width / 2) + "px";
     sparkle.style.top = (rect.top + rect.height / 2) + "px";
@@ -672,10 +578,7 @@ function openGift() {
     sparkle.style.fontSize = (12 + Math.random() * 18) + "px";
 
     document.body.appendChild(sparkle);
-
-    sparkle.addEventListener("animationend", () => {
-      sparkle.remove();
-    }, { once: true });
+    sparkle.addEventListener("animationend", () => sparkle.remove(), { once: true });
   }
 
   setTimeout(() => {
@@ -684,7 +587,7 @@ function openGift() {
   }, 1100);
 }
 
-/* SLIDE 5: SHOW BUTTON AFTER 20 SECONDS OF PLAYBACK */
+/* SLIDE 5 BUTTON: 20 SECONDS OF VIDEO PLAYBACK */
 
 lunaVideo.addEventListener("play", () => {
   lunaNextButton.style.display = "none";
@@ -704,7 +607,7 @@ lunaVideo.addEventListener("ended", () => {
   lunaNextButton.style.display = "inline-block";
 });
 
-/* NEXT PART WILL BE BUILT LATER */
+/* NEXT SURPRISE WILL BE ADDED LATER */
 
 function continueAfterWish() {
   alert("Your next magical surprise is coming soon! 🌙🦋");
@@ -713,3 +616,4 @@ function continueAfterWish() {
 
 </body>
 </html>
+
